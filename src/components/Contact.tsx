@@ -3,7 +3,7 @@ import { TfiEmail } from "react-icons/tfi";
 const Contact = () => {
   return (
     <section className="mt-[80px]">
-      <div className="container">
+      <div className="container mx-auto">
         <div className="bg-black rounded-3xl p-6 sm:p-10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-0">
             <div className="text-center sm:text-left w-full sm:w-[551px]">

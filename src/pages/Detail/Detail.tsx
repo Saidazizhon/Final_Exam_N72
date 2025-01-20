@@ -27,17 +27,17 @@ interface Comment {
 }
 
 const fetchProductById = async (id: string): Promise<Product> => {
-  const response = await axios.get(`https://6788ff202c874e66b7d73080.mockapi.io/v1/products${id}`);
+  const response = await axios.get(`https://6788ff202c874e66b7d73080.mockapi.io/api/v1/products/${id}`);
   return response.data;
 };
 
 const fetchComments = async (id: string): Promise<Comment[]> => {
-  const response = await axios.get(`https://6788ff202c874e66b7d73080.mockapi.io/v1/products/${id}/comments`);
+  const response = await axios.get(`https://6788ff202c874e66b7d73080.mockapi.io/api/v1/products/${id}/comments`);
   return response.data;
 };
 
 const postComment = async ({ id, comment }: { id: string; comment: Omit<Comment, 'id'> }): Promise<Comment> => {
-  const response = await axios.post(`https://6788ff202c874e66b7d73080.mockapi.io/v1/products/${id}/comments`, comment);
+  const response = await axios.post(`https://6788ff202c874e66b7d73080.mockapi.io/api/v1/products/${id}/comments`, comment);
   return response.data;
 };
 
@@ -45,8 +45,8 @@ const Detail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const queryClient = useQueryClient();
 
-  const { data: product, isLoading } = useQuery({
-    queryKey: ['product', id],
+  const { data: products, isLoading } = useQuery({
+    queryKey: ['products', id],
     queryFn: () => fetchProductById(id!),
     enabled: !!id,
   });
@@ -76,15 +76,15 @@ const Detail: React.FC = () => {
   }, [id]);
 
   const handleAddToCart = () => {
-    if (!product) return;
+    if (!products) return;
 
     const cartItem = {
-      id: product.id,
-      title: product.title,
-      price: product.price,
-      desc: product.desc,
+      id: products.id,
+      title: products.title,
+      price: products.price,
+      desc: products.desc,
       quantity,
-      image: product.urls[0],
+      image: products.urls[0],
     };
     dispatch(addToCart(cartItem));
     toast.success('Product added to cart successfully');
@@ -108,13 +108,13 @@ const Detail: React.FC = () => {
         <div className="flex flex-col items-center md:items-start">
           <div className="w-full md:w-[400px] h-[400px] mb-4">
             <img
-              src={selectedImage || product?.urls[0]}
-              alt={product?.title}
+              src={selectedImage || products?.urls[0]}
+              alt={products?.title}
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
           <div className="flex gap-4">
-            {product?.urls.map((url: string, index: number) => (
+            {products?.urls.map((url: string, index: number) => (
               <img
                 key={index}
                 src={url}
@@ -126,10 +126,10 @@ const Detail: React.FC = () => {
           </div>
         </div>
         <div className="flex flex-col gap-4">
-          <h1 className="text-[24px] md:text-[36px] font-bold">{product?.title}</h1>
-          <Rating value={product?.star} readOnly precision={0.5} />
-          <p className="text-[20px] md:text-[24px] font-bold">{product?.price} сум</p>
-          <p className="text-gray-600">{product?.desc}</p>
+          <h1 className="text-[24px] md:text-[36px] font-bold">{products?.title}</h1>
+          <Rating value={products?.star} readOnly precision={0.5} />
+          <p className="text-[20px] md:text-[24px] font-bold">{products?.price} сум</p>
+          <p className="text-gray-600">{products?.desc}</p>
           <div className='flex justify-start gap-[20px] items-center'>
             <div className="flex items-center gap-4">
               <button

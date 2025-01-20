@@ -50,7 +50,7 @@ const Footer = () => {
           ))}
         </ul>
         <hr />
-        <div className="flex flex-col lg:flex-row items-center justify-between mt-[20px] gap-4 lg:gap-0 text-center lg:text-left">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-0 text-center lg:text-left">
           <span className="text-[12px] lg:text-[14px]">
             Shop.co © 2000-2023, All Rights Reserved
           </span>
