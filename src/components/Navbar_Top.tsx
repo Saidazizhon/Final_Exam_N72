@@ -1,7 +1,7 @@
 import { IoClose } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 
-const Sign = () => {
+const Navbar_Top = () => {
   return (
     <div className="py-[10px] relative flex items-center justify-center gap-[20px] bg-black">
             <p className="text-white max-sm:text-center">Sign up and get 20% off to your first order. <Link to={"/"} className='underline'>Sign Up Now</Link></p>
@@ -10,4 +10,4 @@ const Sign = () => {
   )
 }
 
-export default Sign
+export default Navbar_Top

@@ -1,16 +1,16 @@
-import Brands from '@/components/Brands'
+import Sponsors from '@/components/Sponsors'
 import Comments from '@/components/Comments'
-import Dress from '@/components/Dress'
+import BrowseBy from '@/components/BrowseBy'
 import Hero from '@/components/Hero'
-import Products from '@/components/Products'
+import Product from '@/components/Product'
 
 const Home = () => {
   return (
     <>
       <Hero/>
-      <Brands/>
-      <Products/>
-      <Dress/>
+      <Sponsors/>
+      <Product/>
+      <BrowseBy/>
       <Comments/>
     </>
   )

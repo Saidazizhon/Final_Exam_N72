@@ -3,7 +3,7 @@ import Person2 from "@/assets/person2.png";
 import Person3 from "@/assets/person3.png";
 import Person4 from "@/assets/person4.png";
 
-const Dress = () => {
+const BrowseBy = () => {
   return (
     <section>
       <div className="container">
@@ -37,4 +37,4 @@ const Dress = () => {
   );
 };
 
-export default Dress;
+export default BrowseBy;

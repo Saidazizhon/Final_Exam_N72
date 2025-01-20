@@ -1,4 +1,4 @@
-import Cart from '@/pages/Cart/Cart'
+import Korzinka from '@/pages/Korzinka/Korzina'
 import Detail from '@/pages/Detail/Detail'
 import Home from '@/pages/Home/Home'
 import Layout from '@/pages/Layout/Layout'
@@ -11,7 +11,7 @@ const Router = () => {
         <Routes>
             <Route path='/' element={<Layout/>}>
                 <Route path='/' element={<Home/>}/>
-                <Route path='/cart' element={<Cart/>}/>
+                <Route path='/korzina' element={<Korzinka/>}/>
                 <Route path='/detail/:id' element={<Detail/>}/>
                 <Route path='*' element={<NotFound/>}/>
             </Route>

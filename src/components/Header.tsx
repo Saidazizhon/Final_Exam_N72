@@ -1,7 +1,7 @@
 import { useState } from "react";
 import logo from "@/assets/SHOP.CO.svg";
 import { Link } from "react-router-dom";
-import Sign from "./Sign";
+import Navbar_Top from "./Navbar_Top";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { IoPersonCircleOutline, IoCartOutline } from "react-icons/io5";
 import { GoSearch } from "react-icons/go";
@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <>
-      <Sign />
+      <Navbar_Top />
       <header className="py-[13px] mt-[24px]">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between relative">
